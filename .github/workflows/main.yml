@@ -21,8 +21,9 @@ jobs:
 
       - name: Set up Docker Buildx
         run: |
-          echo "::set-env name=DOCKER_CLI_EXPERIMENTAL::enabled"
-          docker buildx create --use
+          echo "DOCKER_CLI_EXPERIMENTAL=enabled" >> $GITHUB_ENV
+          docker buildx create --name mybuilder
+          docker buildx use mybuilder
           docker buildx inspect --bootstrap
 
       - name: Build and push
