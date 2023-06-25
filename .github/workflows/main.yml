@@ -21,10 +21,7 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build --platform windows/amd64 -t ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest .
-          docker build --platform linux/amd64 -t ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest .
-          docker build --platform linux/arm64 -t ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest .
-          docker build --platform linux/arm/v7 -t ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+          docker build --platform windows/amd64 -t ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
 
       - name: Push image
         run: |
